@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+  color: red;
+  transition: opacity 250ms ease-in-out;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+#chat-messages {
+    min-height: 10vh;
+    height: 60vh;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+#judul {
+	margin-top: 10vh;
+}
+
+#text_judul {
+	color: 
+}
