@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Chat</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/emojione/2.2.6/assets/css/emojione.min.css"/>
+    <link rel="stylesheet" href="/style.css">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+    <header>
+        <nav class="indigo darken-2">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo center"><img src="http://the-ex.org/assets/images/icons/theex.png" style="height: 60px"></a>
+            </div>
+<!--             <div>
+                <a class="btn btn-floating pulse"><i class="material-icons">menu</i></a>
+            </div> -->
+        </nav>
+    </header>
+
+    <main id="app">
+        <div class="row" v-if="joined">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card horizontal">
+                        <div id="chat-messages" class="card-content" v-html="chatContent">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" v-model="newMsg" @keyup.enter="send">
+            </div>
+            <div class="input-field col s12 center">
+                <button class="waves-effect waves-light btn indigo darken-2" @click="send">
+                    <i class="material-icons right">send</i>
+                    Send
+                </button>
+            </div>
+        </div>
+        <div id="judul" class="row" v-if="!joined">
+            <h3 id="text_judul" class="center col s12 indigo-text text-darken-2">Welcome to Golang Chat</h3>
+            <div class="row">
+                <div class="input-field col s6 offset-s3">
+                    <input type="email" v-model.trim="email" placeholder="Email" class="center">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 offset-s3">
+                    <input type="text" v-model.trim="username" placeholder="Username" class="center">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 center">
+                    <button class="waves-effect waves-light btn indigo darken-2" @click="join()">
+                        <i class="material-icons right">chat</i>
+                        Join
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<footer class="page-footer indigo darken-2">
+</footer>
+<script src="https://unpkg.com/vue@2.1.3/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/emojione/2.2.6/lib/js/emojione.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
+<script src="/app.js"></script>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>
